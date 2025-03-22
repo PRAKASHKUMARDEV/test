@@ -66,6 +66,7 @@ method load cosntants
 
 
 {
+we have branch for to practise
 
 constants.appurl=obj.getpropeties("app_url);
 .... store panni vachidalam ethu llama utile class la pannalam thani package thani class
