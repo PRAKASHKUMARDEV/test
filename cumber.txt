@@ -1,0 +1,251 @@
+cumber 
+
+no of dependcied u hav to add pom .xml
+
+1.cucmber java
+2.cucmber junit 
+3.cumber gerin
+all are cumber version 6.10.4
+
+cumberide we have to install eclipse market place 
+
+cumber eclipse plugin .
+
+right click configure cumber project .ineclipse
+
+right click run s cucmber file u will get step definition .
+enga nameku right click panni oru oru feature file la run pannalam but ellam onna sethu panna oru runner class venum .
+
+src/test/resources -- feature file erukkum (folder kulla )
+src/test/java -- step definitions erukkum .(package kulla )
+
+cumber options ::
+feature = folder name tharanum location
+glue = step definitions package name tharanum .
+dryrun (Boolean)= default fasle I mean step excute aga kodathu but step definitions erukkanu check pannum .
+monochrome = eadablity of console 
+
+
+eppo common step definitions oru class create panni 
+oru oru scenrioku munnadi enna nadakanum 
+@before --cumber.la erukka @before ok va no junit 
+erthula erukka methods excute agum ella scenario feature file ku munnadi .
+
+oru file la multiple scerio vekkalam na oru feature than erukkum 
+
+
+
+we have to create property file to store some constants 
+
+
+app_url=
+broswer=chrome
+username=
+password=
+
+all are stored in .properties file 
+
+filereader object = new filereader(config.properties);
+
+properties obj = new properties();
+
+obj.load(ethula object of file reader varanum); or 
+u can use tis method 
+obj.load(getclass().getresourcesasstram("filelocation eppadi tharalam /file name.propeties)); I mean resouces mavan folder kulla erukura fileku entha methods use agum 
+obj.getproperies("key");
+
+class constants {
+public static app_url;
+public static username ;
+
+....
+
+}@before 
+method load cosntants 
+
+
+
+{
+
+constants.appurl=obj.getpropeties("app_url);
+.... store panni vachidalam ethu llama utile class la pannalam thani package thani class
+}
+lanch browser (){
+chromedriver=constant.chromedriver;
+int app = constant.app_url;
+}
+
+
+log for j enof for java 8 
+
+abve java 8 we can use log forj2 ;
+
+
+
+
+pagefactory :
+create separate package ;
+create functions and members of eac objects ;
+
+
+class loginpage{
+ erukka elements always static 
+
+@findby(xpath=)
+private username1;
+@findby(xpath=)
+password ;
+
+methods(){
+webdrivermanager.getdriver().get(constant.appurl);
+ loginpage.username.sendkeys(constant.username use config or u can use in excel or examples keyword );
+login.button.click();
+string  h= webdriver.getdriver().gettitle();
+Srrting expecetd ="hi";
+Assert.eqal(actal,expected);//ethanamma step definitionsla kodukanum fail or pass ku 
+}
+entha pom intilaize @before la use pannum to linlize all pages 
+public void initilelemts (){
+pagefactory.initielements(webdrivemanger.getdriver(),login.class);
+syntax(driver,classname) pass pannum ;
+}
+
+
+
+******singlton design pattern ****** in pom oru class ku oru object than create panna mudyium remains allow panna 
+1.page factory oru objet create panni rukkum again ni object create panna web element nulla maridum .
+
+public hompage {
+
+private static homepage instance;
+
+private homepage(){
+
+} // class ku veliya object create panna alow pannathu 
+
+static getinstance(){
+
+
+if (instance==null)
+instance = new homepage();//page factory also doing same this we havato change agument pagefactory 
+}
+else return instance;
+
+}
+
+(getdriver,homepage.getinstance()); I mean enga class name kodupom athu oru object create pannum 
+
+again ninga enthamethods call panna athu oru object create pannum so namma page initialize la reate pannita ora time instance entha varible la mattum than object store agum .so no more object more than one instance ethu only varible for object .
+
+pom {
+ella class layium member object create panna access pannalam with in class ok all evevn privateor publc or product 
+
+actions methods 
+webelemnt declare 
+action methods oru webelement vachi enna panna mudyiumo atha action na eluthanum 
+validation elutha kodathu aha class ku veliya eluthanum .
+
+
+}
+
+screen shot edukanum nan we know athula scerion. kodutha scerio name varum atha namma store panni png fileku kodukalam .
+
+common stepdefinitins {
+static scrionmae;
+
+@before{
+scrionmae=sc.scverionmae;
+} oru oru time scrio call pannum pothu value replace agium entha class member la so oru clas run agum othu anth scrio than name store agum don't worry .
+
+}
+
+
+how to fail test case ?
+we can use org.junit assertion
+assert.fail(e.messag);
+
+
+
+w or un the faie casre r {
+
+w an usepulig={rru:oernm/filname.xt"}
+
+ten ennoru r un clascreate panni copyofodrunner cls
+
+jstchanege or on the this txet fail then rh click an run 
+
+feature :@foldernam/filenametxt 
+
+loose coplin ::
+oru srioenno sceio ase panni erukkakodtu ikedepnd on so 
+book annunafir  logi pnn s 
+before scrialanc nd load files than haruvm 
+examle ru eature uon thn erukm ath oru tie thn run agu efore all scerios btif we hvave 00 ies w dontwato rite 100 akroud so weuse @beore na pnnmna ecan mthod in @bfore klla its ru login() mehodeluh vaialam .(commo funcions) .
+
+
+in pagactryshal i us e eplicitywit 
+no way 
+visbility of (username);eppo work agum because username its element this function throw 
+example 
+visilibity of elements accepy only by locators not elements ethu mathri scerio la expected conditions selathu than webelement accept pannum remain ellam by locaters then accept pannum so hats ahave to change every @find by elemnts to by locater 
+
+
+By username = by.id("username");
+
+appo 
+visbility of (username);eppo work agum because username its by locator now 
+
+remain codes also we have to 
+
+before 
+username.sendkeys(); //its webelemt 
+
+now we have to change below like this 
+
+drivemanget.getdrcer().findelemnt(username).sendkeys();
+
+report ::
+puugin={"prtty"} /prit needly
+useage = its shows how muc times takes stp definitions 
+
+its shows console but we need external file like xml ,json ,html etc .
+
+
+html:foldername/filename;
+used to create report
+
+
+json:foldername/filename;
+json report .
+we can give input json/xml for programe input but not for humans .
+
+junit:foldername/filename;
+xml report  .
+
+extent report now we can configure ::
+version its important 
+
+extent reports only avalible for cucmber 5 
+
+we should use external plugin 
+grasshoppers chirping 
+
+ellam online website erukkum dont worry we just copy and paste thas all ::
+
+1.we should install dependcies ,
+2.we add plugin in cumber .
+3.we should create properties file under src/resource
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+
+
+if your doing some thing 
+
+like move over ,deage and drop and auto suggestions ethulam panna dom la sele elemnets enable agum or geerate agum 
+so antha element x path fetch panni kodutha success 
+ellana actions perform agalanu meaning so namma pandra actions mulayiumya x path change agum  examplw 
+
+worpress la admin panel la mouse over panna than logout element visible agum ellana agathu so before log out we have to do action class 
