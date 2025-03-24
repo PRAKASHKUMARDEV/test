@@ -19,6 +19,7 @@ public class comman {
 	public static  comman getinstance() {
 		// TODO auto-generated method stub
      if(obj==null) {
+    	 System.out.println("hi");
     	 obj=new comman();
      }
 	return obj;
